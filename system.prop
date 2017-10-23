@@ -54,6 +54,8 @@ mmp.enable.3g2=true
 media.aac_51_output_enabled=true
 mm.enable.smoothstreaming=true
 persist.mm.enable.prefetch=true
+vidc.enc.dcvs.extra-buff-count=2
+persist.media.treble_omx=false
 
 # Additional buffers shared between Camera and Video
 vidc.enc.dcvs.extra-buff-count=2
