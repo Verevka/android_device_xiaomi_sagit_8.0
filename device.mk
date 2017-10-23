@@ -154,6 +154,7 @@ PRODUCT_PACKAGES += \
     gralloc.msm8998 \
     hwcomposer.msm8998 \
     memtrack.msm8998 \
+    libgenlock \
     liboverlay \
     libtinyxml \
     android.hardware.graphics.allocator@2.0-impl \
@@ -206,6 +207,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/synaptics_dsx.kl:system/usr/keylayout/synaptics_dsx.kl \
     $(LOCAL_PATH)/keylayout/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl \
     $(LOCAL_PATH)/keylayout/uinput-goodix.kl:system/usr/keylayout/uinput-goodix.kl
+
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
+
 
 # IPv6
 PRODUCT_PACKAGES += \
@@ -335,7 +341,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     context_hub.default \
     android.hardware.sensors@1.0-impl \
-    android.hardware.contexthub@1.0-impl
+    android.hardware.contexthub@1.0-impl \
+    sensors.msm8998
 
 # video seccomp policy files
 PRODUCT_COPY_FILES += \
@@ -344,6 +351,7 @@ PRODUCT_COPY_FILES += \
 
 # Thermal HAL
 PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory \
     android.hardware.thermal@1.0-impl
 
 #USB HAL
