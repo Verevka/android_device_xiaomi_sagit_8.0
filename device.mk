@@ -318,7 +318,7 @@ PRODUCT_PACKAGES += \
 
 # SdcardFS
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=1
+    ro.sys.sdcardfs=0
 
 # Sensors
 PRODUCT_PACKAGES += \
