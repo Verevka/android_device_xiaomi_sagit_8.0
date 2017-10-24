@@ -1,0 +1,27 @@
+commit 40bb623eacaa9788f89e28af9969e3cca9030615
+Author: Verevka <verevka86@gmail.com>
+Date:   Thu Oct 19 09:34:46 2017 +0300
+Subject: [PATCH] msm899x: audio: exclude compress_set_next_track_param if
+ unsupported
+
+https://github.com/CyanogenMod/android_external_tinycompress/commit/3c9df82b91a86d58ba11be90d6fb555438a6209e
+
+diff --git a/hal/audio_hw.c b/hal/audio_hw.c
+index 2fac766..3cee5d3 100644
+--- a/hal/audio_hw.c
++++ b/hal/audio_hw.c
+@@ -3290,12 +3290,14 @@ static ssize_t out_write(struct audio_stream_out *stream, const void *buffer,
+             ALOGD("copl(%p):send new gapless metadata", out);
+             compress_set_gapless_metadata(out->compr, &out->gapless_mdata);
+             out->send_new_metadata = 0;
++#if defined(SNDRV_COMPRESS_SET_NEXT_TRACK_PARAM)
+             if (out->send_next_track_params && out->is_compr_metadata_avail) {
+                 ALOGD("copl(%p):send next track params in gapless", out);
+                 compress_set_next_track_param(out->compr, &(out->compr_config.codec->options));
+                 out->send_next_track_params = false;
+                 out->is_compr_metadata_avail = false;
+             }
++#endif
+         }
+         if ((out->flags & AUDIO_OUTPUT_FLAG_DIRECT_PCM) &&
+                       (out->convert_buffer) != NULL) {
