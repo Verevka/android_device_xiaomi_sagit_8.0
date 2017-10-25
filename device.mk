@@ -376,7 +376,6 @@ PRODUCT_PACKAGES += \
     wificond \
     wifilogd \
     readmac \
-    dhcpcd.conf \
     wpa_supplicant \
     wpa_supplicant.conf
 
