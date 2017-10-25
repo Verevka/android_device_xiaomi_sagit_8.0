@@ -386,3 +386,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
 
+# Netd
+PRODUCT_PACKAGES += \
+    android.system.net.netd@1.0
