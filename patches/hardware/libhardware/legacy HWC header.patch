@@ -1,0 +1,36 @@
+From b397d84f186f563f088bb60422b4ce6ff7cf7510 Mon Sep 17 00:00:00 2001
+From: Vinu Deokaran <vinud@codeaurora.org>
+Date: Mon, 20 Jul 2015 14:13:36 -0400
+Subject: [PATCH] libhardware: add support for tertiary display
+
+The legacy HWC header only supports Primary and External, we need
+to support Tertiary display for automotive project.
+
+Change-Id: I37637bf6c3ec341b9174a9f488b8bf06e0011733
+---
+
+diff --git a/include/hardware/hwcomposer_defs.h b/include/hardware/hwcomposer_defs.h
+index 1e81e6e..fab53e1 100644
+--- a/include/hardware/hwcomposer_defs.h
++++ b/include/hardware/hwcomposer_defs.h
+@@ -254,15 +254,17 @@ enum {
+ enum {
+     HWC_DISPLAY_PRIMARY     = 0,
+     HWC_DISPLAY_EXTERNAL    = 1,    // HDMI, DP, etc.
+-    HWC_DISPLAY_VIRTUAL     = 2,
++    HWC_DISPLAY_TERTIARY    = 2,
++    HWC_DISPLAY_VIRTUAL     = 3,
+ 
+-    HWC_NUM_PHYSICAL_DISPLAY_TYPES = 2,
+-    HWC_NUM_DISPLAY_TYPES          = 3,
++    HWC_NUM_PHYSICAL_DISPLAY_TYPES = 3,
++    HWC_NUM_DISPLAY_TYPES          = 4,
+ };
+ 
+ enum {
+     HWC_DISPLAY_PRIMARY_BIT     = 1 << HWC_DISPLAY_PRIMARY,
+     HWC_DISPLAY_EXTERNAL_BIT    = 1 << HWC_DISPLAY_EXTERNAL,
++    HWC_DISPLAY_TERTIARY_BIT    = 1 << HWC_DISPLAY_TERTIARY,
+     HWC_DISPLAY_VIRTUAL_BIT     = 1 << HWC_DISPLAY_VIRTUAL,
+ };
+ 

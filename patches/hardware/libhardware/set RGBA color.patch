@@ -1,0 +1,25 @@
+From 3f4c2a577ca7041fb85262c3349ef69819566cf9 Mon Sep 17 00:00:00 2001
+From: Sushil Chauhan <sushilchauhan@codeaurora.org>
+Date: Mon, 25 Jul 2016 16:17:17 -0700
+Subject: [PATCH] hwc: Add color member for Dim Layer
+
+SF client can set RGBA color on a Dim Layer. Black is default color.
+
+CRs-Fixed: 1047307
+Change-Id: Ia4586082e8e355ae5a402f91ed533cf5efa25ff7
+---
+
+diff --git a/include/hardware/hwcomposer.h b/include/hardware/hwcomposer.h
+index 9eb1aaf..1964847 100644
+--- a/include/hardware/hwcomposer.h
++++ b/include/hardware/hwcomposer.h
+@@ -286,6 +286,9 @@ typedef struct hwc_layer_1 {
+              * their origin is the top-left corner.
+              */
+             hwc_region_t surfaceDamage;
++
++            /* Color for Dim Layer */
++            hwc_color_t color;
+         };
+     };
+ 

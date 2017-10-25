@@ -2,7 +2,7 @@ echo $1
 rootdirectory="$PWD"
 # ---------------------------------
 
-dirs="hardware/qcom/audio-caf/msm8998"
+dirs="hardware/libhardware hardware/qcom/audio-caf/msm8998"
 
 for dir in $dirs ; do
 	cd $rootdirectory
