@@ -111,11 +111,9 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-# CM Hardware
+# Lineage Hardware
 BOARD_HARDWARE_CLASS += \
-    hardware/cyanogen/cmhw \
-    $(DEVICE_PATH)/cmhw
-BOARD_USES_CYANOGEN_HARDWARE := true
+    $(DEVICE_PATH)/lineagehw
 TARGET_TAP_TO_WAKE_NODE :=  "/proc/touchpanel/double_tap_enable"
 
 # CNE and DPM
