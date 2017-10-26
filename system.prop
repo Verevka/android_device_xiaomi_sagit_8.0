@@ -204,7 +204,7 @@ ro.cutoff_voltage_mv=3400
 persist.radio.dynamic_sar=false
 
 #Expose tele camera for below packages
-camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.miui.cit,org.cyanogenmod.snap
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.miui.cit,org.cyanogenmod.snap
 
 #Supported SE type
 ro.se.type=eSE,HCE
