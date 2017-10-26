@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
+  <project path="device/qcom/common" name="lineageos/android_device_qcom_common" remote="github" revision="lineage-15.0" />
   <project path="vendor/nxp-nfc/opensource/frameworks" name="lineageos/android_vendor_nxp-nfc_opensource_frameworks" remote="github" revision="lineage-15.0" />
   <project path="vendor/nxp-nfc/opensource/libnfc-nci" name="lineageos/android_vendor_nxp-nfc_opensource_libnfc-nci" remote="github" revision="lineage-15.0" />
   <project path="vendor/nxp-nfc/opensource/Nfc" name="lineageos/android_vendor_nxp-nfc_opensource_Nfc" remote="github" revision="lineage-15.0" />
