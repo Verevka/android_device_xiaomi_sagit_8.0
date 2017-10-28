@@ -91,6 +91,13 @@ PRODUCT_PACKAGES += \
     libvolumelistener \
     tinymix
 
+# mediaextensions
+PRODUCT_PACKAGES += \
+    libavmediaserviceextensions \
+    mediametrics \
+    libmediametrics \
+    libregistermsext
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
