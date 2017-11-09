@@ -40,9 +40,9 @@ LOCAL_CFLAGS += \
      -D_ANDROID_
 
 LOCAL_C_INCLUDES:= \
+    $(LOCAL_PATH) \
     $(TARGET_OUT_HEADERS)/gps.utils \
     $(TARGET_OUT_HEADERS)/libloc_core \
-    $(call project-path-for,qcom-gps) \
     $(TARGET_OUT_HEADERS)/libflp \
     $(TARGET_OUT_HEADERS)/libloc_pla
 
@@ -63,7 +63,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := gps.$(TARGET_BOARD_PLATFORM)
+LOCAL_MODULE := gps.$(BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE)
 LOCAL_MODULE_OWNER := qcom
 
 LOCAL_MODULE_TAGS := optional
