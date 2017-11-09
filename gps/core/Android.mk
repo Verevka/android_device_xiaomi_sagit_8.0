@@ -1,3 +1,4 @@
+ifneq ($(BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE),)
 ifneq ($(BUILD_TINY_ANDROID),true)
 
 LOCAL_PATH := $(call my-dir)
@@ -16,12 +17,12 @@ LOCAL_CFLAGS += -DPDK_FEATURE_SET
 endif
 
 LOCAL_SHARED_LIBRARIES := \
-    liblog \
     libutils \
     libcutils \
     libgps.utils \
     libdl \
-    libloc_pla
+    libloc_pla \
+    liblog
 
 LOCAL_SRC_FILES += \
     LocApiBase.cpp \
@@ -57,3 +58,4 @@ LOCAL_PRELINK_MODULE := false
 include $(BUILD_SHARED_LIBRARY)
 
 endif # not BUILD_TINY_ANDROID
+endif # BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE

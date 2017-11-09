@@ -1,3 +1,4 @@
+ifneq ($(BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE),)
 ifneq ($(BUILD_TINY_ANDROID),true)
 #Compile this library only for builds with the latest modem image
 
@@ -10,8 +11,7 @@ LOCAL_SHARED_LIBRARIES := \
     libutils \
     libcutils \
     liblog \
-    libloc_stub \
-    libandroid_runtime
+    libloc_stub
 
 LOCAL_SRC_FILES += \
         platform_lib_android_runtime.cpp \
@@ -26,6 +26,8 @@ LOCAL_CFLAGS += \
      -D_ANDROID_ \
      -std=c++11
 
+
+LOCAL_LDFLAGS += -Wl,--export-dynamic
 
 ## Includes
 LOCAL_C_INCLUDES:= \
@@ -52,3 +54,4 @@ LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
 endif # not BUILD_TINY_ANDROID
+endif # BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE
