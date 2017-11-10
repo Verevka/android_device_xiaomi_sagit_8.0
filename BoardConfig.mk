@@ -250,8 +250,8 @@ TARGET_RIL_VARIANT := caf
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Vendor init
-# TARGET_INIT_VENDOR_LIB := libinit_sagit
-# TARGET_RECOVERY_DEVICE_MODULES := libinit_sagit
+TARGET_INIT_VENDOR_LIB := libinit_sagit
+TARGET_RECOVERY_DEVICE_MODULES := libinit_sagit
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
