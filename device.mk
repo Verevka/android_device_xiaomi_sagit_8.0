@@ -299,6 +299,10 @@ PRODUCT_PACKAGES += \
     powerhint.qti \
     android.hardware.power@1.0-impl
 
+PRODUCT_PACKAGES += \
+    vr.msm8998 \
+    thermal.msm8998
+
 # Prebuilt
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/xiaomi/sagit/prebuilt/system,system)
