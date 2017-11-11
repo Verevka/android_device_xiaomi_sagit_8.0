@@ -42,3 +42,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_FINGERPRINT="Xiaomi/sagit/sagit:7.1.1/NMF26X/V9.0.1.0.NCAMIEI:user/release-keys" \
     PRIVATE_BUILD_DESC="sagit-user 7.1.1 NMF26X V9.0.1.0.NCAMIEI release-keys"
 
+# AICP Device Maintainers
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    DEVICE_MAINTAINERS="Verevka-dev"
