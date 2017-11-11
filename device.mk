@@ -296,6 +296,7 @@ PRODUCT_PACKAGES += \
 # Power
 PRODUCT_PACKAGES += \
     power.msm8998 \
+    powerhint.qti \
     android.hardware.power@1.0-impl
 
 # Prebuilt
