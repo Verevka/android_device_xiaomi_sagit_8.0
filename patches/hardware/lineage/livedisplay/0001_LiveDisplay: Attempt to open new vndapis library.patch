@@ -1,0 +1,48 @@
+From 6efa135d1fe56c2991d04f0143b6e9e4dd02f0e6 Mon Sep 17 00:00:00 2001
+From: Rashed Abdel-Tawab <rashed@linux.com>
+Date: Sat, 30 Sep 2017 22:59:52 -0400
+Subject: [PATCH] livedisplay: Attempt to open new vndapis library
+
+Oreo SDM stacks have libsdm-disp-vnd-apis which replaces the
+old libsdm-disp-apis. Attempt to open the new library first,
+and fallback to the old lib if the new one is not found. Also
+spit out a warning since libsdm-disp-apis IS deprecated
+
+Change-Id: Iaf718c498a2a22f45776335e20b3e37fb4cce6d4
+---
+
+diff --git a/impl/SDM.cpp b/impl/SDM.cpp
+index b0b93fd..1e60f63 100644
+--- a/impl/SDM.cpp
++++ b/impl/SDM.cpp
+@@ -41,7 +41,15 @@
+     mLibHandle = dlopen(SDM_DISP_LIB, RTLD_NOW);
+     if (mLibHandle == NULL) {
+         ALOGE("DLOPEN failed for %s (%s)", SDM_DISP_LIB, dlerror());
+-        return NO_INIT;
++        ALOGE("Attempting to DLOPEN legacy lib %s", SDM_DISP_LEGACY_LIB);
++        mLibHandle = dlopen(SDM_DISP_LEGACY_LIB, RTLD_NOW);
++        if (mLibHandle == NULL) {
++            ALOGE("DLOPEN failed for legacy lib %s (%s)", SDM_DISP_LEGACY_LIB, dlerror());
++            return NO_INIT;
++        } else {
++            ALOGE("%s successfully DLOPENed. This is deprecated! Switch to new %s",
++                   SDM_DISP_LEGACY_LIB, SDM_DISP_LIB);
++        }
+     }
+ 
+     disp_api_init = (int32_t(*)(int64_t*, uint32_t))dlsym(mLibHandle, "disp_api_init");
+diff --git a/impl/SDM.h b/impl/SDM.h
+index dc0c986..f0d3ebe 100644
+--- a/impl/SDM.h
++++ b/impl/SDM.h
+@@ -3,7 +3,8 @@
+ 
+ #include <LiveDisplayBackend.h>
+ 
+-#define SDM_DISP_LIB "libsdm-disp-apis.so"
++#define SDM_DISP_LIB "libsdm-disp-vndapis.so"
++#define SDM_DISP_LEGACY_LIB "libsdm-disp-apis.so"
+ 
+ #define DPPS_BUF_SIZE 64
+ 
