@@ -269,6 +269,10 @@ PRODUCT_PACKAGES += \
     power.msm8998 \
     android.hardware.power@1.0-impl
 
+# Prebuilt
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,device/xiaomi/sagit/prebuilt/system,system)
+
 # QMI
 PRODUCT_PACKAGES += \
     libjson
